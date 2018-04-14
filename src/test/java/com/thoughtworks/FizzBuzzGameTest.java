@@ -103,4 +103,14 @@ public class FizzBuzzGameTest {
 
         Assert.assertEquals("FizzBuzzWhizz", results.get(104));
     }
+
+    @Test
+    public void should_return_word_when_its_contain_special_number() {
+
+        FizzBuzzGame fizzBuzzGame = new FizzBuzzGame();
+        fizzBuzzGame.start(13);
+        List<String> results = fizzBuzzGame.getResults();
+
+        Assert.assertEquals("Fizz", results.get(12));
+    }
 }
