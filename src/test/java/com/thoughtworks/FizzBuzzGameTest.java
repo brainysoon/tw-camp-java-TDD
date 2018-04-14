@@ -113,4 +113,16 @@ public class FizzBuzzGameTest {
 
         Assert.assertEquals("Fizz", results.get(12));
     }
+
+    @Test
+    public void should_ignore_divided_rule_if_its_contain_special_number() {
+
+        FizzBuzzGame fizzBuzzGame = new FizzBuzzGame();
+        fizzBuzzGame.start(79);
+        List<String> results = fizzBuzzGame.getResults();
+
+        Assert.assertEquals("Buzz", results.get(14));
+        Assert.assertEquals("Fizz", results.get(34));
+        Assert.assertEquals("Whizz", results.get(69));
+    }
 }
