@@ -12,7 +12,13 @@ public class FizzBuzzGame {
         this.results = IntStream.rangeClosed(1, count)
                 .collect(ArrayList::new, (list, value) -> {
 
-                    if (value % 3 == 0 || value % 5 == 0 || value % 7 == 0) {
+                    if ((value + "").contains("3")) {
+                        list.add("Fizz");
+                    } else if ((value + "").contains("5")) {
+                        list.add("Buzz");
+                    } else if ((value + "").contains("7")) {
+                        list.add("Whizz");
+                    } else if (value % 3 == 0 || value % 5 == 0 || value % 7 == 0) {
 
                         String words = "";
                         if (value % 3 == 0) {
@@ -26,12 +32,6 @@ public class FizzBuzzGame {
                         }
 
                         list.add(words);
-                    } else if ((value + "").contains("3")) {
-                        list.add("Fizz");
-                    } else if ((value + "").contains("5")) {
-                        list.add("Buzz");
-                    } else if ((value + "").contains("7")) {
-                        list.add("Whizz");
                     } else {
                         list.add(value + "");
                     }
