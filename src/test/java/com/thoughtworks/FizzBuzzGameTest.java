@@ -44,4 +44,18 @@ public class FizzBuzzGameTest {
             }
         }
     }
+
+    @Test
+    public void should_return_Whizz_when_its_multiple_times_of_7() {
+
+        FizzBuzzGame fizzBuzzGame = new FizzBuzzGame();
+        fizzBuzzGame.start(16);
+        List<String> results = fizzBuzzGame.getResults();
+
+        for (int i = 1; i < results.size(); i++) {
+            if (i % 7 == 0) {
+                Assert.assertEquals("Whizz", results.get(i - 1));
+            }
+        }
+    }
 }
