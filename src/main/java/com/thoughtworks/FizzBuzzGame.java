@@ -13,6 +13,11 @@ public class FizzBuzzGame {
                 .collect(ArrayList::new, (list, value) -> {
 
                     if (value % 3 == 0) {
+                        if (value % 5 == 0) {
+                            list.add("FizzBuzz");
+                            return;
+                        }
+
                         list.add("Fizz");
                     } else if (value % 5 == 0) {
 
