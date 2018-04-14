@@ -94,4 +94,13 @@ public class FizzBuzzGameTest {
 
         }
     }
+
+    @Test
+    public void should_return_FizzBuzzWhizz_when_exactly_times_of_three_number() {
+        FizzBuzzGame fizzBuzzGame = new FizzBuzzGame();
+        fizzBuzzGame.start(140);
+        List<String> results = fizzBuzzGame.getResults();
+
+        Assert.assertEquals("FizzBuzzWhizz", results.get(104));
+    }
 }
