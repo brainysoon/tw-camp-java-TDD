@@ -58,4 +58,18 @@ public class FizzBuzzGameTest {
             }
         }
     }
+
+    @Test
+    public void should_return_FizzBuzz_when_its_both_times_of_3_and_5() {
+
+        FizzBuzzGame fizzBuzzGame = new FizzBuzzGame();
+        fizzBuzzGame.start(16);
+        List<String> results = fizzBuzzGame.getResults();
+
+        for (int i = 1; i < results.size(); i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                Assert.assertEquals("FizzBuzz", results.get(i - 1));
+            }
+        }
+    }
 }
