@@ -6,30 +6,35 @@ import java.util.stream.IntStream;
 
 
 public class FizzBuzzGame {
+    public static final String FIZZ = "Fizz";
+    public static final String BUZZ = "Buzz";
+    public static final String WHIZZ = "Whizz";
+    public static final String EMPTY_WORDS = "";
+
     private List<String> results = new ArrayList<>();
 
     public void start(int count) {
         this.results = IntStream.rangeClosed(1, count)
                 .collect(ArrayList::new, (list, value) -> {
 
-                    if ((value + "").contains("3")) {
-                        list.add("Fizz");
+                    if (String.valueOf(value).contains(String.valueOf(3))) {
+                        list.add(FIZZ);
                     } else if (value % 3 == 0 || value % 5 == 0 || value % 7 == 0) {
 
-                        String words = "";
+                        String words = EMPTY_WORDS;
                         if (value % 3 == 0) {
-                            words += "Fizz";
+                            words += FIZZ;
                         }
                         if (value % 5 == 0) {
-                            words += "Buzz";
+                            words += BUZZ;
                         }
                         if (value % 7 == 0) {
-                            words += "Whizz";
+                            words += WHIZZ;
                         }
 
                         list.add(words);
                     } else {
-                        list.add(value + "");
+                        list.add(String.valueOf(value));
                     }
                 }, ArrayList::addAll);
     }
