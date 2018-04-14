@@ -72,4 +72,26 @@ public class FizzBuzzGameTest {
             }
         }
     }
+
+    @Test
+    public void should_return_tow_words_when_its_tow_number_times() {
+        FizzBuzzGame fizzBuzzGame = new FizzBuzzGame();
+        fizzBuzzGame.start(100);
+        List<String> results = fizzBuzzGame.getResults();
+
+        for (int i = 1; i < results.size(); i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                Assert.assertEquals("FizzBuzz", results.get(i - 1));
+            }
+
+            if (i % 3 == 0 && i % 7 == 0) {
+                Assert.assertEquals("FizzWhizz", results.get(i - 1));
+            }
+
+            if (i % 5 == 0 && i % 7 == 0) {
+                Assert.assertEquals("BuzzWhizz", results.get(i - 1));
+            }
+
+        }
+    }
 }
