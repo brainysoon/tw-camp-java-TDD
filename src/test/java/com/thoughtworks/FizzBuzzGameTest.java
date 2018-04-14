@@ -30,4 +30,18 @@ public class FizzBuzzGameTest {
             }
         }
     }
+
+    @Test
+    public void should_return_Buzz_when_its_multiple_times_of_5() {
+
+        FizzBuzzGame fizzBuzzGame = new FizzBuzzGame();
+        fizzBuzzGame.start(10);
+        List<String> results = fizzBuzzGame.getResults();
+
+        for (int i = 1; i < results.size(); i++) {
+            if (i % 5 == 0) {
+                Assert.assertEquals("Buzz", results.get(i - 1));
+            }
+        }
+    }
 }
