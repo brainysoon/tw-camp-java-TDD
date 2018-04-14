@@ -12,7 +12,7 @@ public class FizzBuzzGame {
         this.results = IntStream.rangeClosed(1, count)
                 .collect(ArrayList::new, (list, value) -> {
 
-                    if (value == 3) {
+                    if (value % 3 == 0) {
                         list.add("Fizz");
                     } else {
                         list.add(value + "");
