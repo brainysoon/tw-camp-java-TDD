@@ -24,7 +24,14 @@ public class FizzBuzzGame {
                         if (value % 7 == 0) {
                             words += "Whizz";
                         }
+
                         list.add(words);
+                    } else if ((value + "").contains("3")) {
+                        list.add("Fizz");
+                    } else if ((value + "").contains("5")) {
+                        list.add("Buzz");
+                    } else if ((value + "").contains("7")) {
+                        list.add("Whizz");
                     } else {
                         list.add(value + "");
                     }
