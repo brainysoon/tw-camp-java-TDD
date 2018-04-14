@@ -12,19 +12,19 @@ public class FizzBuzzGame {
         this.results = IntStream.rangeClosed(1, count)
                 .collect(ArrayList::new, (list, value) -> {
 
-                    if (value % 3 == 0) {
-                        if (value % 5 == 0) {
-                            list.add("FizzBuzz");
-                            return;
+                    if (value % 3 == 0 || value % 5 == 0 || value % 7 == 0) {
+
+                        String words = "";
+                        if (value % 3 == 0) {
+                            words += "Fizz";
                         }
-
-                        list.add("Fizz");
-                    } else if (value % 5 == 0) {
-
-                        list.add("Buzz");
-                    } else if (value % 7 == 0) {
-
-                        list.add("Whizz");
+                        if (value % 5 == 0) {
+                            words += "Buzz";
+                        }
+                        if (value % 7 == 0) {
+                            words += "Whizz";
+                        }
+                        list.add(words);
                     } else {
                         list.add(value + "");
                     }
