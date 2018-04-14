@@ -1,15 +1,17 @@
 package com.thoughtworks;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.IntStream;
 
 
 public class FizzBuzzGame {
-    public static final String FIZZ = "Fizz";
-    public static final String BUZZ = "Buzz";
-    public static final String WHIZZ = "Whizz";
-    public static final String EMPTY_WORDS = "";
+    private static final String EMPTY_WORDS = "";
+    private static final String FIZZ = "Fizz";
+    private static final String BUZZ = "Buzz";
+    private static final String WHIZZ = "Whizz";
+    public static final int SPECIAL_NUMBER_THREE = 3;
+    private static final List<Integer> specialNumbers = Arrays.asList(3, 5, 7);
+    public static final int SPECIAL_NUMBER_SEVEN = 5;
 
     private List<String> results = new ArrayList<>();
 
@@ -17,22 +19,18 @@ public class FizzBuzzGame {
         this.results = IntStream.rangeClosed(1, count)
                 .collect(ArrayList::new, (list, value) -> {
 
-                    if (String.valueOf(value).contains(String.valueOf(3))) {
-                        list.add(FIZZ);
-                    } else if (value % 3 == 0 || value % 5 == 0 || value % 7 == 0) {
+                    if (String.valueOf(value).contains(String.valueOf(SPECIAL_NUMBER_THREE))) {
+                        list.add(mapNumberToWords(SPECIAL_NUMBER_THREE));
+                    } else if (specialNumbers.stream()
+                            .anyMatch(specialNumber -> canBeDivided(value, specialNumber))) {
 
-                        String words = EMPTY_WORDS;
-                        if (value % 3 == 0) {
-                            words += FIZZ;
-                        }
-                        if (value % 5 == 0) {
-                            words += BUZZ;
-                        }
-                        if (value % 7 == 0) {
-                            words += WHIZZ;
-                        }
-
-                        list.add(words);
+                        list.add(specialNumbers.stream()
+                                .reduce(EMPTY_WORDS, (words, specialNumber) -> {
+                                    if (canBeDivided(value, specialNumber)) {
+                                        return words.concat(mapNumberToWords(specialNumber));
+                                    }
+                                    return words;
+                                }, String::concat));
                     } else {
                         list.add(String.valueOf(value));
                     }
@@ -41,6 +39,20 @@ public class FizzBuzzGame {
 
     public List<String> getResults() {
         return results;
+    }
+
+    private boolean canBeDivided(int target, int divider) {
+        return target % divider == 0;
+    }
+
+    private String mapNumberToWords(int number) {
+        if (number == SPECIAL_NUMBER_THREE) {
+            return FIZZ;
+        } else if (number == SPECIAL_NUMBER_SEVEN) {
+            return BUZZ;
+        } else {
+            return WHIZZ;
+        }
     }
 }
 
