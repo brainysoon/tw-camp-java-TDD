@@ -63,45 +63,32 @@ public class FizzBuzzGameTest {
     public void should_return_FizzBuzz_when_its_both_times_of_3_and_5() {
 
         FizzBuzzGame fizzBuzzGame = new FizzBuzzGame();
-        fizzBuzzGame.start(16);
+        fizzBuzzGame.start(60);
         List<String> results = fizzBuzzGame.getResults();
 
-        for (int i = 1; i < results.size(); i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                Assert.assertEquals("FizzBuzz", results.get(i - 1));
-            }
-        }
+        Assert.assertEquals("FizzBuzz", results.get(59));
     }
 
     @Test
     public void should_return_tow_words_when_its_tow_number_times() {
         FizzBuzzGame fizzBuzzGame = new FizzBuzzGame();
-        fizzBuzzGame.start(100);
+        fizzBuzzGame.start(150);
         List<String> results = fizzBuzzGame.getResults();
 
-        for (int i = 1; i < results.size(); i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                Assert.assertEquals("FizzBuzz", results.get(i - 1));
-            }
+        Assert.assertEquals("FizzBuzz", results.get(59));
 
-            if (i % 3 == 0 && i % 7 == 0) {
-                Assert.assertEquals("FizzWhizz", results.get(i - 1));
-            }
+        Assert.assertEquals("FizzWhizz", results.get(20));
 
-            if (i % 5 == 0 && i % 7 == 0) {
-                Assert.assertEquals("BuzzWhizz", results.get(i - 1));
-            }
-
-        }
+        Assert.assertEquals("BuzzWhizz", results.get(139));
     }
 
     @Test
     public void should_return_FizzBuzzWhizz_when_exactly_times_of_three_number() {
         FizzBuzzGame fizzBuzzGame = new FizzBuzzGame();
-        fizzBuzzGame.start(140);
+        fizzBuzzGame.start(210);
         List<String> results = fizzBuzzGame.getResults();
 
-        Assert.assertEquals("FizzBuzzWhizz", results.get(104));
+        Assert.assertEquals("FizzBuzzWhizz", results.get(209));
     }
 
     @Test
