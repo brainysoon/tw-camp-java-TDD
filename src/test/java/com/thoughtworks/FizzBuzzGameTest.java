@@ -16,4 +16,18 @@ public class FizzBuzzGameTest {
 
         Assert.assertEquals("Fizz", results.get(2));
     }
+
+    @Test
+    public void should_return_Fizz_when_its_multiple_times_of_3() {
+
+        FizzBuzzGame fizzBuzzGame = new FizzBuzzGame();
+        fizzBuzzGame.start(10);
+        List<String> results = fizzBuzzGame.getResults();
+
+        for (int i = 1; i < results.size(); i++) {
+            if (i % 3 == 0) {
+                Assert.assertEquals("Fizz", results.get(i - 1));
+            }
+        }
+    }
 }
