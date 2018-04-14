@@ -14,10 +14,6 @@ public class FizzBuzzGame {
 
                     if ((value + "").contains("3")) {
                         list.add("Fizz");
-                    } else if ((value + "").contains("5")) {
-                        list.add("Buzz");
-                    } else if ((value + "").contains("7")) {
-                        list.add("Whizz");
                     } else if (value % 3 == 0 || value % 5 == 0 || value % 7 == 0) {
 
                         String words = "";
