@@ -14,6 +14,9 @@ public class FizzBuzzGame {
 
                     if (value % 3 == 0) {
                         list.add("Fizz");
+                    } else if (value % 5 == 0) {
+
+                        list.add("Buzz");
                     } else {
                         list.add(value + "");
                     }
